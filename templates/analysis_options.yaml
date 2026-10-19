@@ -1,0 +1,64 @@
+# Strict Analysis Options for Flutter Vibe Coding
+# Drop this file into your Flutter project root to prevent AI-generated anti-patterns at compile time.
+
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+
+  errors:
+    # Treat critical vibe-coding hazards as fatal errors
+    use_build_context_synchronously: error
+    unawaited_futures: error
+    cancel_subscriptions: error
+    close_sinks: error
+    missing_required_param: error
+    missing_return: error
+    must_be_immutable: error
+
+    # Strict hygiene warnings
+    avoid_print: warning
+    prefer_const_constructors: warning
+    prefer_const_declarations: warning
+    prefer_const_literals_to_create_immutables: warning
+    avoid_unnecessary_containers: warning
+
+linter:
+  rules:
+    # --- Context & Async Safety ---
+    - use_build_context_synchronously
+    - unawaited_futures
+    - cancel_subscriptions
+    - close_sinks
+
+    # --- Performance & Const ---
+    - prefer_const_constructors
+    - prefer_const_constructors_in_immutables
+    - prefer_const_declarations
+    - prefer_const_literals_to_create_immutables
+    - avoid_unnecessary_containers
+    - sized_box_for_whitespace
+    - sized_box_shrink_expand
+
+    # --- Code Hygiene & Clean Architecture ---
+    - avoid_print
+    - always_declare_return_types
+    - avoid_shadowing_type_parameters
+    - avoid_empty_else
+    - avoid_relative_lib_imports
+    - empty_catches
+    - no_duplicate_case_values
+    - prefer_is_empty
+    - prefer_is_not_empty
+    - prefer_iterable_whereType
+    - prefer_single_quotes
+    - unawaited_futures
+    - unnecessary_const
+    - unnecessary_new
+    - unnecessary_nullable_for_final_variable_declarations
+    - unnecessary_string_interpolations
+    - use_key_in_widget_constructors
+    - use_rethrow_when_possible
